@@ -2,13 +2,11 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
-	"time"
 )
 
 func main() {
-	start := time.Now()
+	// start := time.Now()
 	plantation := Forest{Trees: []Tree{}, MaxX: 10000, MaxY: 10000}
 	plantation.plantTrees(64e+5, generateFullRandom)
 	startForestfire(&plantation, &plantation.Trees[0], 1, &Vector{angle: 0, norm: 0})
@@ -17,13 +15,16 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	f, err := os.Create("forest.json")
+	file, err := os.Create("forest.json")
 	if err != nil {
 		panic(err)
 	}
-	defer f.Close()
-	f.Write(data)
+	defer file.Close()
+	_, err = file.Write(data)
+	if err != nil {
+		panic(err)
+	}
 
-	elapsed := time.Since(start)
-	fmt.Println(elapsed)
+	// elapsed := time.Since(start)
+	// fmt.Println(elapsed)
 }
