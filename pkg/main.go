@@ -1,0 +1,4 @@
+package forestfire
+
+func main() {
+}
