@@ -1,4 +1,4 @@
-package forestfire
+package main
 
 func startForestfire(plantantion *Plantantion, startingTree *Tree, maxBurnDistance float64, wind *Vector) {
 	startingTree.isBurning = true

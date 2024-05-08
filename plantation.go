@@ -1,4 +1,4 @@
-package forestfire
+package main
 
 type Plantantion struct {
 	trees []Tree

@@ -1,10 +1,10 @@
-package forestfire
+package main
 
 import "math"
 
 type Coordinates struct {
-	x float64
-	y float64
+	x float64 `json: "positionX`
+	y float64 `json: "positionY`
 }
 
 func (a *Coordinates) getDistanceFrom(b *Coordinates) float64 {

@@ -1,4 +1,4 @@
-package forestfire
+package main
 
 import "math/rand"
 

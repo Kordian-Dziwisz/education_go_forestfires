@@ -1,4 +1,4 @@
-package forestfire
+package main
 
 type Wind struct {
 	angle    float64
