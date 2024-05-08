@@ -1,6 +1,6 @@
 package main
 
 type Vector struct {
-	angle    float64
-	velocity float64
+	angle float64
+	norm  float64
 }

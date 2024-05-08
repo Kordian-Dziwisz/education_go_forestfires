@@ -1,7 +1,7 @@
 package main
 
 type Forest struct {
-	Trees []Tree `json:"trees"`
+	Trees []Tree `json:"trees"` // gotta add burned trees arr, might help with optimization
 	MaxX  float64
 	MaxY  float64
 }

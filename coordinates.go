@@ -13,5 +13,5 @@ func (a *Coordinates) getDistanceFrom(b *Coordinates) float64 {
 
 func (a *Coordinates) getShiftedPosition(v *Vector) *Coordinates {
 	// add vector v to point a to get a final shifted position, as a new point
-	return &Coordinates{a.X + v.velocity*math.Cos(v.angle), a.Y + v.velocity*math.Sin(v.angle)}
+	return &Coordinates{a.X + v.norm*math.Cos(v.angle), a.Y + v.norm*math.Sin(v.angle)}
 }
