@@ -3,15 +3,15 @@ package main
 import "math"
 
 type Coordinates struct {
-	x float64 `json: "positionX`
-	y float64 `json: "positionY`
+	X float64 `json:"x"`
+	Y float64 `json:"y"`
 }
 
 func (a *Coordinates) getDistanceFrom(b *Coordinates) float64 {
-	return math.Sqrt((math.Abs((*a).x-(*b).x) + math.Abs((*a).y-(*b).y)))
+	return math.Sqrt((math.Abs((*a).X-(*b).X) + math.Abs((*a).Y-(*b).Y)))
 }
 
 func (a *Coordinates) getShiftedPosition(v *Vector) *Coordinates {
 	// add vector v to point a to get a final shifted position, as a new point
-	return &Coordinates{a.x + v.velocity*math.Cos(v.angle), a.y + v.velocity*math.Sin(v.angle)}
+	return &Coordinates{a.X + v.velocity*math.Cos(v.angle), a.Y + v.velocity*math.Sin(v.angle)}
 }

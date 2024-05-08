@@ -1,10 +1,11 @@
 package main
 
-func startForestfire(plantantion *Plantantion, startingTree *Tree, maxBurnDistance float64, wind *Vector) {
-	startingTree.isBurning = true
-	for _, tree := range plantantion.trees {
-		if tree.position.getDistanceFrom(startingTree.position.getShiftedPosition(wind)) < maxBurnDistance && !tree.isBurning {
-			startForestfire(plantantion, &tree, maxBurnDistance, wind)
+func startForestfire(plantantion *Forest, startingTree *Tree, maxBurnDistance float64, wind *Vector) {
+	startingTree.IsBurning = true
+	for i := 0; i < len(plantantion.Trees); i++ {
+		tree := &plantantion.Trees[i]
+		if tree.Position.getDistanceFrom(startingTree.Position.getShiftedPosition(wind)) < maxBurnDistance && !tree.IsBurning {
+			startForestfire(plantantion, tree, maxBurnDistance, wind)
 		}
 	}
 }

@@ -1,6 +1,6 @@
 package main
 
 type Tree struct {
-	position  Coordinates `json: "position"`
-	isBurning bool        `json: "isBurning"`
+	Position  Coordinates `json:"position"`
+	IsBurning bool        `json:"isBurning"`
 }
