@@ -2,12 +2,22 @@ package main
 
 type Forest struct {
 	Trees []Tree `json:"trees"` // gotta add burned trees arr, might help with optimization
-	MaxX  float64
-	MaxY  float64
+	maxX  float64
+	maxY  float64
 }
 
-func (p *Forest) plantTrees(amount uint64, generate Generator) {
-	for _, position := range generate(amount, p.MaxX, p.MaxY) {
-		p.Trees = append(p.Trees, Tree{Position: position, IsBurning: false})
+func (f *Forest) plantTrees(amount uint64, generate Generator) {
+	for _, position := range generate(amount, f.maxX, f.maxY) {
+		f.Trees = append(f.Trees, Tree{Position: position, IsBurning: false})
+	}
+}
+
+func (f *Forest) copy() *Forest {
+	trees := make([]Tree, len(f.Trees))
+	copy(trees, f.Trees)
+	return &Forest{
+		trees,
+		f.maxX,
+		f.maxY,
 	}
 }

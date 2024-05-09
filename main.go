@@ -7,11 +7,16 @@ import (
 
 func main() {
 	// start := time.Now()
-	plantation := Forest{Trees: []Tree{}, MaxX: 10, MaxY: 10}
-	plantation.plantTrees(64, generateFullRandom)
-	startForestfire(&plantation, &plantation.Trees[0], 1, &Vector{angle: 0, norm: 0})
+	forest := Forest{Trees: []Tree{}, maxX: 10, maxY: 10}
+	forest.plantTrees(192, generateFullRandom)
 
-	data, err := json.Marshal(plantation.Trees)
+	history := History{Snapshots: []Forest{},
+		args: FFArgs{maxBurnDistance: 1,
+			wind: &Vector{angle: 0, norm: 1}}}
+
+	history.startForestfire(0, &forest)
+
+	data, err := json.Marshal(history)
 	if err != nil {
 		panic(err)
 	}
